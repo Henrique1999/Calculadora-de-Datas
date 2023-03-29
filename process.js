@@ -17,77 +17,37 @@ document.getElementById("DIVenviar").addEventListener("click", (e) => {
   }
   resultado = segundaData - primeiraData;
   let primeiraDataDiasDoMes = new Date(primeiraData);
+  primeiraDataDiasDoMes.setMonth(primeiraDataDiasDoMes.getMonth() + 1)
   primeiraDataDiasDoMes.setDate(primeiraDataDiasDoMes.getDate() - primeiraDataDiasDoMes.getDate())
   primeiraDataDiasDoMes = primeiraDataDiasDoMes.getDate()
+  console.log(primeiraDataDiasDoMes);
 
-  const resultadoDias = Math.floor(resultado / 1000 / 60 / 60 / 24);
-
-  let resultadoMeses = (segundaData.getMonth() + (12 * (primeiraData.getMonth() > segundaData.getMonth()))) - primeiraData.getMonth() - (primeiraData.getMonth() > segundaData.getMonth()) + 1;
-
-  console.log(resultadoMeses);
+  let resultadoAnos = segundaData.getFullYear() - primeiraData.getFullYear();
+  let resultadoMeses;
+  if (segundaData.getMonth() < primeiraData.getMonth()) {
+    resultadoMeses = (segundaData.getMonth() + (12 * (resultadoAnos > 0))) - primeiraData.getMonth();
+    resultadoAnos -= 1;
+  }else {
+    resultadoMeses = segundaData.getMonth() - primeiraData.getMonth();
+  }
   
-  let resultadoAnos = "*";
+  let resultadoDias;
+  if (segundaData.getDate() < primeiraData.getDate()) {
+      resultadoDias = (primeiraDataDiasDoMes - primeiraData.getDate()) + segundaData.getDate();
+      if (resultadoMeses > 0 ) {
+          resultadoMeses -= 1;
+      }else {
+          resultadoMeses = 11;
+          resultadoAnos -= 1; 
+      }
+  }else {
+      resultadoDias = segundaData.getDate() - primeiraData.getDate();
+  }
+  
+  
   document.getElementById(
     "Resultado"
   ).innerHTML = `<br><br><br><br><span class="ResultadoFull">existem  <span class="ResultadoAnos">${resultadoAnos} ano(s)</span>,
   <span class="ResultadoMeses">${resultadoMeses} meses(s)</span> 
   <span class="ResultadoDia">${resultadoDias} dia(s)</span> entre as datas</span>`;
 });
-
-/* 
-
-  02/03/2023
-  01/02/2024
-
-
-  2024 - 2023 = 1
-  (02 + (12 * (booleanoMes(1))) ) - 03 = 11
-  ano = ano - (booleanoMes(1) ) = 0 • Anos
-  (01 + (quantidadeDiasMesMin(31) * (booleanoDia(1) ) ) ) - 02  = 30 • Dias
-  mes = mes - (booleanoDia(1) ) = 10 • Meses
-
-  10 meses e 30 dias
-
-  (diaMin > diaMax) : booleano = (0 ou 1)
-  
-
-  (mesMin > mesMax) : booleano = (0 ou 1)
-  
-
-  (anoMin > anoMax) : booleano = (0 ou 1)
-  
-
- */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*   const resultadoSegundos = Math.floor(resultado / 1000);
-  const resultadoMinutos = Math.floor(resultado / 1000 / 60);
-  const resultadoHoras = Math.floor(resultado / 1000 / 60 / 60);
-  const resultadoDias = Math.floor(resultado / 1000 / 60 / 60 / 24);
-  const resultadoAnos = Math.floor(resultado / 1000 / 60 / 60 / 24 / 365); */
-/* console.log(resultadoSegundos - (resultadoMinutos * 60) + " Segundos");*/
