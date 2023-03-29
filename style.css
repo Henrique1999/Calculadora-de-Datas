@@ -1,0 +1,13 @@
+.ResultadoFull {
+    color: #106464;
+    font-size: 24pt;
+}
+
+.ResultadoDia {
+    font-weight: bold;
+    color: #179c53;
+}
+.ResultadoAnos {
+    font-weight: bold;
+    color: #8baa00;
+}
