@@ -5,15 +5,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Calculadora de Datas</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="./style/style.css" />
   </head>
   <body>
-    <span>Data : </span>
-    <input type="date" id="Data1" /><br />
-    <span>Data : </span>
-    <input type="date" id="Data2" />
-
-    <button id="DIVenviar">Enviar</button>
+    <div class="Desafio1">
+      <div class="CaixasDatas"></div>
+      <label>
+        <span>Data : </span>
+        <input type="date" id="Data1" /><br />
+      </label>
+      <label>
+        <span>Data : </span>
+        <input type="date" id="Data2" />
+      </label>
+      <p class="Descricao">
+        <i>
+          Gostaria de saber o intervalo entre duas datas?<br>
+          Basta declarar as datas
+        </i>
+      </p>
+    </div>
     <div id="Resultado"></div>
     <script src="./process.js"></script>
   </body>
